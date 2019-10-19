@@ -1,0 +1,19 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - bash ./build_for_lambda/build.sh
+  #      - yum install python37 -y
+  #      - pip3 install --upgrade pip setuptools
+  #      - yum install python-devel python3-devel mysql-devel mysql-libs mysql-community-devel libmysqlclient-dev -y
+  #      - yum install gcc -y
+  #      - pip install -r requirements.txt
+  #      - cp /usr/lib64/mysql/libmysqlclient.so.18 /build_src/src/controller/sample_api_1/
+  #      - cp /usr/lib64/mysql/libmysqlclient.so.18 /build_src/src/controller/sample_api_2/
+  build:
+    commands:
+      - aws cloudformation package --template-file template.yaml --s3-bucket ${S3BucketName} --output-template output.yaml
+  post_build:
+    commands:
+      - aws cloudformation deploy --template-file output.yaml --stack-name ${EnvName}-lambda-functions --capabilities CAPABILITY_IAM --parameter-overrides EnvName=${EnvName}

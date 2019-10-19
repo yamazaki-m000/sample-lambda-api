@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  build_sreh_source_for_lambda:
+    build: .
+    volumes:
+      - ..:/build_src
+    environment:
+      - "S3BucketName=sample-lambda-api"
+      - "EnvName=dev"

@@ -1,0 +1,1061 @@
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2019-10-10T05:17:23.301424Z	    2 Connect	a5m2@172.27.0.1 on mysql using TCP/IP
+2019-10-10T05:17:23.301444Z	    2 Connect	Access denied for user 'a5m2'@'172.27.0.1' (using password: YES)
+2019-10-10T05:17:25.184286Z	    3 Connect	a5m2@172.27.0.1 on mysql using TCP/IP
+2019-10-10T05:17:25.184306Z	    3 Connect	Access denied for user 'a5m2'@'172.27.0.1' (using password: YES)
+2019-10-10T05:18:05.140987Z	    4 Connect	user@172.27.0.1 on  using SSL/TLS
+2019-10-10T05:18:05.142475Z	    4 Query	select @@version_comment limit 1
+2019-10-10T05:18:21.155873Z	    4 Query	SELECT DATABASE()
+2019-10-10T05:18:21.160676Z	    4 Init DB	sample_db
+2019-10-10T05:18:22.595900Z	    4 Query	SELECT `Host`, `User`, `Password` FROM user
+2019-10-10T05:18:54.497143Z	    4 Query	CREATE USER 'a5m2'@'gateway' IDENTIFIED WITH 'mysql_native_password' AS '<secret>'
+2019-10-10T05:19:30.317518Z	    4 Query	show databases
+2019-10-10T05:19:37.096990Z	    4 Query	SELECT `Host`, `User`, `Password` FROM user
+2019-10-10T05:20:17.650336Z	    4 Query	SELECT * FROM mysql.user
+2019-10-10T05:20:30.626734Z	    4 Quit	
+2019-10-10T05:20:50.180953Z	    5 Connect	root@172.27.0.1 on  using SSL/TLS
+2019-10-10T05:20:50.182421Z	    5 Query	select @@version_comment limit 1
+2019-10-10T05:20:52.865416Z	    5 Query	SELECT * FROM mysql.user
+2019-10-10T05:21:00.860548Z	    5 Query	SHOW COLUMNS FROM mysql.user
+2019-10-10T05:21:25.182723Z	    5 Query	SELECT Host, User FROM mysql.user
+2019-10-10T05:21:59.855117Z	    6 Connect	root@172.27.0.1 on mysql using TCP/IP
+2019-10-10T05:21:59.861822Z	    6 Query	SET NAMES 'utf8'
+2019-10-10T05:21:59.862999Z	    6 Query	show databases
+2019-10-10T05:21:59.881914Z	    6 Quit	
+2019-10-10T05:22:06.619732Z	    7 Connect	root@172.27.0.1 on sample_db using TCP/IP
+2019-10-10T05:22:06.621420Z	    7 Query	SET NAMES 'utf8'
+2019-10-10T05:22:07.737834Z	    7 Quit	
+2019-10-10T05:22:15.482169Z	    8 Connect	root@172.27.0.1 on sample_db using TCP/IP
+2019-10-10T05:22:15.483928Z	    8 Query	SET NAMES 'utf8'
+2019-10-10T05:22:15.484693Z	    8 Query	select version()
+2019-10-10T05:22:15.485346Z	    8 Query	select version()
+2019-10-10T05:22:15.486002Z	    8 Query	set AUTOCOMMIT=1
+2019-10-10T05:22:15.486707Z	    8 Query	show variables like 'character_set_database'
+2019-10-10T05:22:15.492468Z	    8 Query	select version()
+2019-10-10T05:22:15.511831Z	    8 Query	show databases
+2019-10-10T05:22:15.516336Z	    8 Query	select database()
+2019-10-10T05:22:18.119246Z	    8 Query	select version()
+2019-10-10T05:22:18.120491Z	    8 Query	show table status from `sample_db`
+2019-10-10T05:22:18.129099Z	    8 Query	select database()
+2019-10-10T05:22:18.130137Z	    8 Query	select version()
+2019-10-10T05:22:18.131137Z	    8 Query	select version()
+2019-10-10T05:22:18.132190Z	    8 Query	show table status from `sample_db`
+2019-10-10T05:22:18.135148Z	    8 Query	show procedure status
+2019-10-10T05:22:18.147238Z	    8 Query	show function status
+2019-10-10T05:22:20.752090Z	    8 Query	select version()
+2019-10-10T05:22:20.753608Z	    8 Query	select
+  KCU.COLUMN_NAME
+from
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU
+  inner join INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
+    on TC.CONSTRAINT_SCHEMA  = KCU.CONSTRAINT_SCHEMA
+   and TC.CONSTRAINT_NAME    = KCU.CONSTRAINT_NAME
+   and TC.TABLE_SCHEMA       = KCU.TABLE_SCHEMA
+   and TC.TABLE_NAME         = KCU.TABLE_NAME
+where
+  TC.CONSTRAINT_TYPE = 'PRIMARY KEY'
+  and KCU.TABLE_SCHEMA='sample_db' 
+  and KCU.TABLE_NAME='users' 
+order by
+  KCU.ORDINAL_POSITION
+2019-10-10T05:22:21.218235Z	    8 Query	select database()
+2019-10-10T05:22:21.220033Z	    8 Query	show full columns from sample_db.users
+2019-10-10T05:22:21.241819Z	    8 Query	SELECT * FROM sample_db.users ORDER BY `id` limit 10000
+2019-10-10T05:22:21.286994Z	    8 Query	show columns from sample_db.users
+2019-10-10T05:37:05.434663Z	    8 Query	show create table sample_db.users
+2019-10-10T05:37:06.787247Z	    8 Query	select TC.CONSTRAINT_NAME from information_schema.TABLE_CONSTRAINTS TC where TC.TABLE_SCHEMA='sample_db' and TC.TABLE_NAME='users' and TC.CONSTRAINT_TYPE='UNIQUE'
+2019-10-10T05:37:06.788385Z	    8 Query	show index from sample_db.users
+2019-10-10T05:37:07.263369Z	    8 Query	select version()
+2019-10-10T05:37:07.264378Z	    8 Query	select
+  KCU.COLUMN_NAME
+from
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU
+  inner join INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
+    on TC.CONSTRAINT_SCHEMA  = KCU.CONSTRAINT_SCHEMA
+   and TC.CONSTRAINT_NAME    = KCU.CONSTRAINT_NAME
+   and TC.TABLE_SCHEMA       = KCU.TABLE_SCHEMA
+   and TC.TABLE_NAME         = KCU.TABLE_NAME
+where
+  TC.CONSTRAINT_TYPE = 'PRIMARY KEY'
+  and KCU.TABLE_SCHEMA='sample_db' 
+  and KCU.TABLE_NAME='users' 
+order by
+  KCU.ORDINAL_POSITION
+2019-10-10T05:37:07.278408Z	    8 Query	show columns from sample_db.users
+2019-10-10T05:37:07.279562Z	    8 Query	select database()
+2019-10-10T05:37:07.280375Z	    8 Query	show full columns from sample_db.users
+2019-10-10T05:37:07.281390Z	    8 Query	select database()
+2019-10-10T05:37:07.282235Z	    8 Query	show full columns from sample_db.users
+2019-10-10T05:37:07.834164Z	    8 Query	select version()
+2019-10-10T05:37:07.835694Z	    8 Query	select
+  KCU.COLUMN_NAME
+from
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU
+  inner join INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
+    on TC.CONSTRAINT_SCHEMA  = KCU.CONSTRAINT_SCHEMA
+   and TC.CONSTRAINT_NAME    = KCU.CONSTRAINT_NAME
+   and TC.TABLE_SCHEMA       = KCU.TABLE_SCHEMA
+   and TC.TABLE_NAME         = KCU.TABLE_NAME
+where
+  TC.CONSTRAINT_TYPE = 'PRIMARY KEY'
+  and KCU.TABLE_SCHEMA='sample_db' 
+  and KCU.TABLE_NAME='users' 
+order by
+  KCU.ORDINAL_POSITION
+2019-10-10T05:37:07.846319Z	    8 Query	select 
+  TC.CONSTRAINT_CATALOG 
+  , TC.TABLE_SCHEMA 
+  , TC.TABLE_NAME 
+  , TC.CONSTRAINT_NAME 
+  , TC.CONSTRAINT_TYPE 
+  , KCU.COLUMN_NAME 
+  , KCU.ORDINAL_POSITION as POSITION
+from 
+  information_schema.TABLE_CONSTRAINTS TC 
+  left join information_schema.KEY_COLUMN_USAGE KCU 
+    on  KCU.CONSTRAINT_SCHEMA = TC.CONSTRAINT_SCHEMA 
+    and KCU.CONSTRAINT_NAME   = TC.CONSTRAINT_NAME 
+    and KCU.TABLE_SCHEMA      = TC.TABLE_SCHEMA 
+    and KCU.TABLE_NAME        = TC.TABLE_NAME 
+where 
+  TC.TABLE_SCHEMA='sample_db' 
+  and TC.TABLE_NAME='users' 
+  and TC.CONSTRAINT_TYPE in ('PRIMARY KEY', 'UNIQUE', 'CHECK') 
+order by 
+  TC.CONSTRAINT_CATALOG 
+  , TC.TABLE_SCHEMA 
+  , TC.TABLE_NAME 
+  , TC.CONSTRAINT_TYPE 
+  , TC.CONSTRAINT_NAME 
+  , KCU.ORDINAL_POSITION 
+  , KCU.COLUMN_NAME
+2019-10-10T05:37:08.371058Z	    8 Query	select version()
+2019-10-10T05:37:08.372064Z	    8 Query	select
+  CONSTRAINT_SCHEMA
+  , CONSTRAINT_NAME
+  , ORDINAL_POSITION
+  , TABLE_SCHEMA
+  , TABLE_NAME
+  , COLUMN_NAME
+  , REFERENCED_TABLE_SCHEMA
+  , REFERENCED_TABLE_NAME
+  , REFERENCED_COLUMN_NAME 
+from
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+where
+  REFERENCED_TABLE_SCHEMA is not null 
+order by
+  CONSTRAINT_SCHEMA
+  , CONSTRAINT_NAME
+  , ORDINAL_POSITION
+2019-10-10T05:37:09.212661Z	    8 Query	select * from information_schema.TRIGGERS where EVENT_OBJECT_SCHEMA='sample_db' and EVENT_OBJECT_TABLE = 'users'
+2019-10-10T05:37:22.732927Z	    8 Query	select * from sample_db.users where 0=1
+2019-10-10T05:37:22.740437Z	    8 Query	select TC.CONSTRAINT_NAME from information_schema.TABLE_CONSTRAINTS TC where TC.TABLE_SCHEMA='sample_db' and TC.TABLE_NAME='users' and TC.CONSTRAINT_TYPE='UNIQUE'
+2019-10-10T05:37:22.741645Z	    8 Query	show index from sample_db.users
+2019-10-10T05:37:22.758762Z	    8 Query	select database()
+2019-10-10T05:37:22.759718Z	    8 Query	show full columns from sample_db.users
+2019-10-10T05:37:29.708783Z	    8 Query	select version()
+2019-10-10T05:37:29.709965Z	    8 Query	select
+  KCU.COLUMN_NAME
+from
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU
+  inner join INFORMATION_SCHEMA.TABLE_CONSTRAINTS TC
+    on TC.CONSTRAINT_SCHEMA  = KCU.CONSTRAINT_SCHEMA
+   and TC.CONSTRAINT_NAME    = KCU.CONSTRAINT_NAME
+   and TC.TABLE_SCHEMA       = KCU.TABLE_SCHEMA
+   and TC.TABLE_NAME         = KCU.TABLE_NAME
+where
+  TC.CONSTRAINT_TYPE = 'PRIMARY KEY'
+  and KCU.TABLE_SCHEMA='sample_db' 
+  and KCU.TABLE_NAME='users' 
+order by
+  KCU.ORDINAL_POSITION
+2019-10-10T05:37:39.918299Z	    8 Query	select * from sample_db.users where 0=1
+2019-10-10T05:37:39.925598Z	    8 Query	select TC.CONSTRAINT_NAME from information_schema.TABLE_CONSTRAINTS TC where TC.TABLE_SCHEMA='sample_db' and TC.TABLE_NAME='users' and TC.CONSTRAINT_TYPE='UNIQUE'
+2019-10-10T05:37:39.926991Z	    8 Query	show index from sample_db.users
+2019-10-10T05:37:39.943803Z	    8 Query	select database()
+2019-10-10T05:37:39.944735Z	    8 Query	show full columns from sample_db.users
+2019-10-10T05:39:17.956743Z	    8 Query	select version()
+2019-10-10T05:39:17.958057Z	    8 Query	select
+  CONSTRAINT_SCHEMA
+  , CONSTRAINT_NAME
+  , ORDINAL_POSITION
+  , TABLE_SCHEMA
+  , TABLE_NAME
+  , COLUMN_NAME
+  , REFERENCED_TABLE_SCHEMA
+  , REFERENCED_TABLE_NAME
+  , REFERENCED_COLUMN_NAME 
+from
+  INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+where
+  REFERENCED_TABLE_SCHEMA is not null 
+order by
+  CONSTRAINT_SCHEMA
+  , CONSTRAINT_NAME
+  , ORDINAL_POSITION
+2019-10-10T05:39:19.235920Z	    8 Query	select version()
+2019-10-10T05:39:19.236837Z	    8 Query	select * from INFORMATION_SCHEMA.TABLES where TABLE_SCHEMA='sample_db' and TABLE_NAME = 'users'
+2019-10-10T05:43:42.865119Z	    8 Quit	
+2019-10-10T05:43:57.955391Z	    9 Connect	user@172.27.0.1 on sample_db using TCP/IP
+2019-10-10T05:43:57.956742Z	    9 Query	SET NAMES 'utf8'
+2019-10-10T05:43:57.957492Z	    9 Query	select version()
+2019-10-10T05:43:57.958027Z	    9 Query	select version()
+2019-10-10T05:43:57.958557Z	    9 Query	set AUTOCOMMIT=1
+2019-10-10T05:43:57.959088Z	    9 Query	show variables like 'character_set_database'
+2019-10-10T05:43:57.962903Z	    9 Query	select version()
+2019-10-10T05:43:57.983521Z	    9 Query	show databases
+2019-10-10T05:43:57.989917Z	    9 Query	select database()
+2019-10-10T05:44:05.341168Z	    9 Quit	
+2019-10-10T08:13:33.463366Z	    5 Quit	
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2019-10-16T05:51:25.228814Z	    2 Connect	user@172.20.0.1 on  using SSL/TLS
+2019-10-16T05:51:25.232176Z	    2 Query	select @@version_comment limit 1
+2019-10-16T05:51:32.495147Z	    2 Query	SELECT DATABASE()
+2019-10-16T05:51:32.500800Z	    2 Init DB	sample_db
+2019-10-16T05:51:47.470837Z	    2 Query	select * from user
+2019-10-16T05:51:52.080586Z	    2 Query	select * from user
+2019-10-16T05:52:02.698958Z	    2 Query	show tables
+2019-10-16T05:52:07.500053Z	    2 Query	select * from users
+2019-10-16T06:16:33.269701Z	    3 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:16:33.272584Z	    3 Query	SET autocommit=0
+2019-10-16T06:16:33.273683Z	    3 Query	SET NAMES latin1
+2019-10-16T06:16:33.274847Z	    3 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:16:33.281987Z	    3 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:16:33.283722Z	    3 Query	SELECT VERSION()
+2019-10-16T06:16:33.284830Z	    3 Query	SELECT DATABASE()
+2019-10-16T06:16:33.285707Z	    3 Query	SELECT @@transaction_isolation
+2019-10-16T06:16:33.286673Z	    3 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:16:33.288216Z	    3 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:16:33.289244Z	    3 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:16:33.290070Z	    3 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:16:33.290549Z	    3 Query	ROLLBACK 
+2019-10-16T06:16:33.291064Z	    3 Query	SET NAMES latin1
+2019-10-16T06:16:33.291881Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:16:33.295508Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:16:33.298379Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:16:33.312436Z	    3 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:16:33.316065Z	    3 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:16:33.420647Z	    3 Query	ROLLBACK 
+2019-10-16T06:16:33.453636Z	    3 Quit	
+2019-10-16T06:18:26.858912Z	    4 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:18:26.861188Z	    4 Query	SET autocommit=0
+2019-10-16T06:18:26.861993Z	    4 Query	SET NAMES latin1
+2019-10-16T06:18:26.862916Z	    4 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:18:26.866987Z	    4 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:18:26.868982Z	    4 Query	SELECT VERSION()
+2019-10-16T06:18:26.869950Z	    4 Query	SELECT DATABASE()
+2019-10-16T06:18:26.870642Z	    4 Query	SELECT @@transaction_isolation
+2019-10-16T06:18:26.871273Z	    4 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:18:26.872991Z	    4 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:18:26.873954Z	    4 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:18:26.874860Z	    4 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:18:26.875855Z	    4 Query	ROLLBACK 
+2019-10-16T06:18:26.876514Z	    4 Query	SET NAMES latin1
+2019-10-16T06:18:26.877510Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:18:26.881413Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:18:26.885308Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:18:26.897362Z	    4 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:18:26.900295Z	    4 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:18:27.000699Z	    4 Query	ROLLBACK 
+2019-10-16T06:18:27.033566Z	    4 Quit	
+2019-10-16T06:19:30.322962Z	    5 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:19:30.324899Z	    5 Query	SET autocommit=0
+2019-10-16T06:19:30.325771Z	    5 Query	SET NAMES latin1
+2019-10-16T06:19:30.326797Z	    5 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:19:30.330254Z	    5 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:19:30.331961Z	    5 Query	SELECT VERSION()
+2019-10-16T06:19:30.332941Z	    5 Query	SELECT DATABASE()
+2019-10-16T06:19:30.333737Z	    5 Query	SELECT @@transaction_isolation
+2019-10-16T06:19:30.334709Z	    5 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:19:30.336285Z	    5 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:19:30.337172Z	    5 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:19:30.338376Z	    5 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:19:30.339079Z	    5 Query	ROLLBACK 
+2019-10-16T06:19:30.339740Z	    5 Query	SET NAMES latin1
+2019-10-16T06:19:30.340754Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:19:30.345415Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:19:30.348817Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:19:30.360940Z	    5 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:19:30.363886Z	    5 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:19:30.384102Z	    5 Query	ROLLBACK 
+2019-10-16T06:19:30.414807Z	    5 Quit	
+2019-10-16T06:21:06.896506Z	    2 Query	SHOW GLOBAL VARIABLES like 'max_connections'
+2019-10-16T06:21:28.150827Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:21:42.945972Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:21:46.530685Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:21:52.568098Z	    6 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:21:52.570076Z	    6 Query	SET autocommit=0
+2019-10-16T06:21:52.570754Z	    6 Query	SET NAMES latin1
+2019-10-16T06:21:52.571529Z	    6 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:21:52.575306Z	    6 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:21:52.576947Z	    6 Query	SELECT VERSION()
+2019-10-16T06:21:52.577930Z	    6 Query	SELECT DATABASE()
+2019-10-16T06:21:52.578613Z	    6 Query	SELECT @@transaction_isolation
+2019-10-16T06:21:52.579430Z	    6 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:21:52.580757Z	    6 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:21:52.581559Z	    6 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:21:52.582344Z	    6 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:21:52.583011Z	    6 Query	ROLLBACK 
+2019-10-16T06:21:52.583583Z	    6 Query	SET NAMES latin1
+2019-10-16T06:21:52.584564Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:21:52.588858Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:21:52.592497Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:21:52.605446Z	    6 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:21:52.608271Z	    6 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:21:52.628950Z	    6 Query	ROLLBACK 
+2019-10-16T06:21:52.664046Z	    6 Quit	
+2019-10-16T06:21:54.459987Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:22:07.441691Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:22:08.882013Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:22:10.064842Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:22:19.346767Z	    7 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:22:19.350200Z	    7 Query	SET autocommit=0
+2019-10-16T06:22:19.354478Z	    7 Query	SET NAMES latin1
+2019-10-16T06:22:19.361902Z	    7 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:22:19.380570Z	    7 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:22:19.394518Z	    7 Query	SELECT VERSION()
+2019-10-16T06:22:19.444214Z	    7 Query	SELECT DATABASE()
+2019-10-16T06:22:19.454854Z	    7 Query	SELECT @@transaction_isolation
+2019-10-16T06:22:19.462535Z	    7 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:22:19.516185Z	    7 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:22:19.546241Z	    7 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:22:19.583280Z	    7 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:22:19.587973Z	    7 Query	ROLLBACK 
+2019-10-16T06:22:19.590662Z	    7 Query	SET NAMES latin1
+2019-10-16T06:22:20.720924Z	    8 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:22:20.727702Z	    8 Query	SET autocommit=0
+2019-10-16T06:22:20.732931Z	    8 Query	SET NAMES latin1
+2019-10-16T06:22:20.738836Z	    8 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:22:20.748167Z	    8 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:22:20.762162Z	    8 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:22:23.136755Z	    7 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:22:23.273294Z	    8 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:22:23.277513Z	    8 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:22:26.093733Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:24:34.774617Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:24:38.514432Z	    2 Query	SHOW GLOBAL VARIABLES like 'max_connections'
+2019-10-16T06:24:59.548443Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:25:11.391029Z	    7 Query	ROLLBACK 
+2019-10-16T06:25:11.391863Z	    8 Query	ROLLBACK 
+2019-10-16T06:25:11.417288Z	    7 Quit	
+2019-10-16T06:25:11.417439Z	    8 Quit	
+2019-10-16T06:25:15.286327Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:27:59.379021Z	    2 Query	SHOW GLOBAL VARIABLES like 'max_connections'
+2019-10-16T06:28:56.742881Z	    9 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:28:56.745124Z	    9 Query	SET autocommit=0
+2019-10-16T06:28:56.745967Z	    9 Query	SET NAMES latin1
+2019-10-16T06:28:56.747048Z	    9 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:28:56.750509Z	    9 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:28:56.751971Z	    9 Query	SELECT VERSION()
+2019-10-16T06:28:56.752878Z	    9 Query	SELECT DATABASE()
+2019-10-16T06:28:56.753726Z	    9 Query	SELECT @@transaction_isolation
+2019-10-16T06:28:56.754403Z	    9 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:28:56.755746Z	    9 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:28:56.756378Z	    9 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:28:56.757270Z	    9 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:28:56.757824Z	    9 Query	ROLLBACK 
+2019-10-16T06:28:56.758417Z	    9 Query	SET NAMES latin1
+2019-10-16T06:28:56.759381Z	    9 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:28:56.762865Z	    9 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:28:56.765260Z	    9 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:28:56.776965Z	    9 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:28:56.779765Z	    9 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:28:56.799542Z	    9 Query	ROLLBACK 
+2019-10-16T06:28:56.830366Z	    9 Quit	
+2019-10-16T06:29:32.572901Z	    2 Query	SHOW STATUS like 'Threads_connected'
+2019-10-16T06:29:59.178836Z	    2 Quit	
+2019-10-16T06:32:10.098836Z	   10 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:32:10.101072Z	   10 Query	SET autocommit=0
+2019-10-16T06:32:10.102160Z	   10 Query	SET NAMES latin1
+2019-10-16T06:32:10.103266Z	   10 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:32:10.107435Z	   10 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:32:10.109381Z	   10 Query	SELECT VERSION()
+2019-10-16T06:32:10.110610Z	   10 Query	SELECT DATABASE()
+2019-10-16T06:32:10.111537Z	   10 Query	SELECT @@transaction_isolation
+2019-10-16T06:32:10.112579Z	   10 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:32:10.115273Z	   10 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:32:10.117062Z	   10 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:32:10.118490Z	   10 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:32:10.119491Z	   10 Query	ROLLBACK 
+2019-10-16T06:32:10.120431Z	   10 Query	SET NAMES latin1
+2019-10-16T06:32:10.121786Z	   10 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:32:10.125241Z	   10 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:32:10.128213Z	   10 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:32:10.140430Z	   10 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:32:10.144800Z	   10 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:32:10.173427Z	   10 Query	ROLLBACK 
+2019-10-16T06:32:10.207053Z	   10 Quit	
+2019-10-16T06:41:58.615926Z	   11 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:41:58.618477Z	   11 Query	SET autocommit=0
+2019-10-16T06:41:58.619707Z	   11 Query	SET NAMES latin1
+2019-10-16T06:41:58.620900Z	   11 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:41:58.624259Z	   11 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:41:58.626218Z	   11 Query	SELECT VERSION()
+2019-10-16T06:41:58.627721Z	   11 Query	SELECT DATABASE()
+2019-10-16T06:41:58.628855Z	   11 Query	SELECT @@transaction_isolation
+2019-10-16T06:41:58.629877Z	   11 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:41:58.632201Z	   11 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:41:58.633567Z	   11 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:41:58.635277Z	   11 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:41:58.636424Z	   11 Query	ROLLBACK 
+2019-10-16T06:41:58.637743Z	   11 Query	SET NAMES latin1
+2019-10-16T06:41:58.639775Z	   11 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:41:58.644785Z	   11 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:41:58.648634Z	   11 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:41:58.661992Z	   11 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:41:58.665352Z	   11 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:41:58.687148Z	   11 Query	ROLLBACK 
+2019-10-16T06:41:58.727020Z	   11 Quit	
+2019-10-16T06:42:30.701122Z	   12 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T06:42:30.703655Z	   12 Query	SET autocommit=0
+2019-10-16T06:42:30.704650Z	   12 Query	SET NAMES latin1
+2019-10-16T06:42:30.705585Z	   12 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T06:42:30.709342Z	   12 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T06:42:30.711246Z	   12 Query	SELECT VERSION()
+2019-10-16T06:42:30.712597Z	   12 Query	SELECT DATABASE()
+2019-10-16T06:42:30.713544Z	   12 Query	SELECT @@transaction_isolation
+2019-10-16T06:42:30.714607Z	   12 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T06:42:30.716549Z	   12 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:42:30.717739Z	   12 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T06:42:30.718880Z	   12 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T06:42:30.720037Z	   12 Query	ROLLBACK 
+2019-10-16T06:42:30.721004Z	   12 Query	SET NAMES latin1
+2019-10-16T06:42:30.722302Z	   12 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:42:30.726222Z	   12 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:42:30.729631Z	   12 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T06:42:30.741865Z	   12 Query	SHOW CREATE TABLE `users`
+2019-10-16T06:42:30.746110Z	   12 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T06:42:30.772513Z	   12 Query	ROLLBACK 
+2019-10-16T06:42:30.807303Z	   12 Quit	
+2019-10-16T07:36:26.358129Z	   13 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T07:36:26.360411Z	   13 Query	SET autocommit=0
+2019-10-16T07:36:26.361516Z	   13 Query	SET NAMES latin1
+2019-10-16T07:36:26.362672Z	   13 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T07:36:26.366637Z	   13 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T07:36:26.368908Z	   13 Query	SELECT VERSION()
+2019-10-16T07:36:26.370342Z	   13 Query	SELECT DATABASE()
+2019-10-16T07:36:26.371368Z	   13 Query	SELECT @@transaction_isolation
+2019-10-16T07:36:26.372412Z	   13 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T07:36:26.374673Z	   13 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:36:26.376001Z	   13 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:36:26.377616Z	   13 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T07:36:26.378611Z	   13 Query	ROLLBACK 
+2019-10-16T07:36:26.379536Z	   13 Query	SET NAMES latin1
+2019-10-16T07:36:26.381334Z	   13 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:36:26.386207Z	   13 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:36:26.389465Z	   13 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:36:26.404162Z	   13 Query	SHOW CREATE TABLE `users`
+2019-10-16T07:36:26.407395Z	   13 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T07:36:26.431260Z	   13 Query	ROLLBACK 
+2019-10-16T07:36:26.463712Z	   13 Quit	
+2019-10-16T07:39:11.453970Z	   14 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T07:39:11.456587Z	   14 Query	SET autocommit=0
+2019-10-16T07:39:11.457920Z	   14 Query	SET NAMES latin1
+2019-10-16T07:39:11.459074Z	   14 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T07:39:11.463237Z	   14 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T07:39:11.470705Z	   14 Query	SELECT VERSION()
+2019-10-16T07:39:11.473478Z	   14 Query	SELECT DATABASE()
+2019-10-16T07:39:11.474915Z	   14 Query	SELECT @@transaction_isolation
+2019-10-16T07:39:11.475981Z	   14 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T07:39:11.477856Z	   14 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:39:11.478983Z	   14 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:39:11.480254Z	   14 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T07:39:11.481307Z	   14 Query	ROLLBACK 
+2019-10-16T07:39:11.482386Z	   14 Query	SET NAMES latin1
+2019-10-16T07:39:11.483712Z	   14 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:39:11.487923Z	   14 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:39:11.491573Z	   14 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:39:11.504170Z	   14 Query	SHOW CREATE TABLE `users`
+2019-10-16T07:39:11.507489Z	   14 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T07:39:11.533823Z	   14 Query	ROLLBACK 
+2019-10-16T07:39:11.565997Z	   14 Quit	
+2019-10-16T07:40:35.900185Z	   15 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T07:40:35.903294Z	   15 Query	SET autocommit=0
+2019-10-16T07:40:35.904750Z	   15 Query	SET NAMES latin1
+2019-10-16T07:40:35.905991Z	   15 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T07:40:35.909811Z	   15 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T07:40:35.912086Z	   15 Query	SELECT VERSION()
+2019-10-16T07:40:35.913395Z	   15 Query	SELECT DATABASE()
+2019-10-16T07:40:35.914418Z	   15 Query	SELECT @@transaction_isolation
+2019-10-16T07:40:35.915258Z	   15 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T07:40:35.916963Z	   15 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:40:35.918052Z	   15 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:40:35.919200Z	   15 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T07:40:35.920082Z	   15 Query	ROLLBACK 
+2019-10-16T07:40:35.921094Z	   15 Query	SET NAMES latin1
+2019-10-16T07:40:35.922195Z	   15 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:40:35.925355Z	   15 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:40:35.928240Z	   15 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:40:35.939545Z	   15 Query	SHOW CREATE TABLE `users`
+2019-10-16T07:40:35.943149Z	   15 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T07:40:35.958122Z	   15 Query	ROLLBACK 
+2019-10-16T07:40:35.981475Z	   15 Quit	
+2019-10-16T07:41:03.428019Z	   16 Connect	user@172.20.0.1 on sample_db using TCP/IP
+2019-10-16T07:41:03.430096Z	   16 Query	SET autocommit=0
+2019-10-16T07:41:03.431084Z	   16 Query	SET NAMES latin1
+2019-10-16T07:41:03.431986Z	   16 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T07:41:03.434196Z	   16 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T07:41:03.435951Z	   16 Query	SELECT VERSION()
+2019-10-16T07:41:03.437397Z	   16 Query	SELECT DATABASE()
+2019-10-16T07:41:03.444461Z	   16 Query	SELECT @@transaction_isolation
+2019-10-16T07:41:03.445982Z	   16 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T07:41:03.447882Z	   16 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:41:03.449061Z	   16 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T07:41:03.450418Z	   16 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T07:41:03.451496Z	   16 Query	ROLLBACK 
+2019-10-16T07:41:03.452456Z	   16 Query	SET NAMES latin1
+2019-10-16T07:41:03.453623Z	   16 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:41:03.457789Z	   16 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:41:03.461766Z	   16 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T07:41:03.476521Z	   16 Query	SHOW CREATE TABLE `users`
+2019-10-16T07:41:03.486858Z	   16 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T07:41:03.514261Z	   16 Query	ROLLBACK 
+2019-10-16T07:41:03.549040Z	   16 Quit	
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2019-10-16T08:22:03.412209Z	    2 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T08:22:03.417969Z	    2 Query	SET autocommit=0
+2019-10-16T08:22:03.419452Z	    2 Query	SET NAMES latin1
+2019-10-16T08:22:03.421148Z	    2 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T08:22:03.426031Z	    2 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T08:22:03.429074Z	    2 Query	SELECT VERSION()
+2019-10-16T08:22:03.430742Z	    2 Query	SELECT DATABASE()
+2019-10-16T08:22:03.432130Z	    2 Query	SELECT @@transaction_isolation
+2019-10-16T08:22:03.433324Z	    2 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T08:22:03.435535Z	    2 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:22:03.437063Z	    2 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:22:03.439007Z	    2 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T08:22:03.440519Z	    2 Query	ROLLBACK 
+2019-10-16T08:22:03.441963Z	    2 Query	SET NAMES latin1
+2019-10-16T08:22:03.443661Z	    2 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:22:03.448033Z	    2 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:22:03.452983Z	    2 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:22:03.466169Z	    2 Query	SHOW CREATE TABLE `users`
+2019-10-16T08:22:03.474620Z	    2 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T08:22:03.491405Z	    2 Query	ROLLBACK 
+2019-10-16T08:22:03.530545Z	    2 Quit	
+2019-10-16T08:30:44.591579Z	    3 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T08:30:44.593366Z	    3 Query	SET autocommit=0
+2019-10-16T08:30:44.594134Z	    3 Query	SET NAMES latin1
+2019-10-16T08:30:44.595012Z	    3 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T08:30:44.598354Z	    3 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T08:30:44.600272Z	    3 Query	SELECT VERSION()
+2019-10-16T08:30:44.601626Z	    3 Query	SELECT DATABASE()
+2019-10-16T08:30:44.602517Z	    3 Query	SELECT @@transaction_isolation
+2019-10-16T08:30:44.603419Z	    3 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T08:30:44.605071Z	    3 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:30:44.606186Z	    3 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:30:44.607278Z	    3 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T08:30:44.608151Z	    3 Query	ROLLBACK 
+2019-10-16T08:30:44.608948Z	    3 Query	SET NAMES latin1
+2019-10-16T08:30:44.610099Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:30:44.613643Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:30:44.616584Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:30:44.628690Z	    3 Query	SHOW CREATE TABLE `users`
+2019-10-16T08:30:44.631783Z	    3 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T08:30:44.646081Z	    3 Query	ROLLBACK 
+2019-10-16T08:30:44.696074Z	    3 Quit	
+2019-10-16T08:31:31.607975Z	    4 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T08:31:31.610259Z	    4 Query	SET autocommit=0
+2019-10-16T08:31:31.611245Z	    4 Query	SET NAMES latin1
+2019-10-16T08:31:31.612126Z	    4 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T08:31:31.616605Z	    4 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T08:31:31.619050Z	    4 Query	SELECT VERSION()
+2019-10-16T08:31:31.620164Z	    4 Query	SELECT DATABASE()
+2019-10-16T08:31:31.621056Z	    4 Query	SELECT @@transaction_isolation
+2019-10-16T08:31:31.621904Z	    4 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T08:31:31.623471Z	    4 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:31:31.624479Z	    4 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:31:31.625469Z	    4 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T08:31:31.626404Z	    4 Query	ROLLBACK 
+2019-10-16T08:31:31.627338Z	    4 Query	SET NAMES latin1
+2019-10-16T08:31:31.628289Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:31:31.633232Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:31:31.636681Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:31:31.649078Z	    4 Query	SHOW CREATE TABLE `users`
+2019-10-16T08:31:31.652354Z	    4 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T08:31:31.667636Z	    4 Query	ROLLBACK 
+2019-10-16T08:31:31.697368Z	    4 Quit	
+2019-10-16T08:31:56.683011Z	    5 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T08:31:56.685259Z	    5 Query	SET autocommit=0
+2019-10-16T08:31:56.686139Z	    5 Query	SET NAMES latin1
+2019-10-16T08:31:56.687079Z	    5 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T08:31:56.690754Z	    5 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T08:31:56.692527Z	    5 Query	SELECT VERSION()
+2019-10-16T08:31:56.693389Z	    5 Query	SELECT DATABASE()
+2019-10-16T08:31:56.694093Z	    5 Query	SELECT @@transaction_isolation
+2019-10-16T08:31:56.695023Z	    5 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T08:31:56.696406Z	    5 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:31:56.697298Z	    5 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T08:31:56.698183Z	    5 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T08:31:56.698909Z	    5 Query	ROLLBACK 
+2019-10-16T08:31:56.699517Z	    5 Query	SET NAMES latin1
+2019-10-16T08:31:56.700596Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:31:56.704337Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:31:56.707263Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T08:31:56.718152Z	    5 Query	SHOW CREATE TABLE `users`
+2019-10-16T08:31:56.720820Z	    5 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T08:31:56.733518Z	    5 Query	ROLLBACK 
+2019-10-16T08:31:56.759155Z	    5 Quit	
+2019-10-16T09:51:18.720078Z	    6 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T09:51:18.722330Z	    6 Query	SET autocommit=0
+2019-10-16T09:51:18.723279Z	    6 Query	SET NAMES latin1
+2019-10-16T09:51:18.724268Z	    6 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T09:51:18.728546Z	    6 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T09:51:18.730575Z	    6 Query	SELECT VERSION()
+2019-10-16T09:51:18.731746Z	    6 Query	SELECT DATABASE()
+2019-10-16T09:51:18.732852Z	    6 Query	SELECT @@transaction_isolation
+2019-10-16T09:51:18.733792Z	    6 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T09:51:18.735808Z	    6 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T09:51:18.736937Z	    6 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T09:51:18.738230Z	    6 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T09:51:18.738978Z	    6 Query	ROLLBACK 
+2019-10-16T09:51:18.739732Z	    6 Query	SET NAMES latin1
+2019-10-16T09:51:18.740790Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T09:51:18.744632Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T09:51:18.748413Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T09:51:18.761751Z	    6 Query	SHOW CREATE TABLE `users`
+2019-10-16T09:51:18.766885Z	    6 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T09:51:18.786799Z	    6 Query	ROLLBACK 
+2019-10-16T09:51:18.822227Z	    6 Quit	
+2019-10-16T09:51:34.930159Z	    7 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T09:51:34.933069Z	    7 Query	SET autocommit=0
+2019-10-16T09:51:34.934233Z	    7 Query	SET NAMES latin1
+2019-10-16T09:51:34.935579Z	    7 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T09:51:34.941505Z	    7 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T09:51:34.944670Z	    7 Query	SELECT VERSION()
+2019-10-16T09:51:34.946529Z	    7 Query	SELECT DATABASE()
+2019-10-16T09:51:34.948055Z	    7 Query	SELECT @@transaction_isolation
+2019-10-16T09:51:34.949490Z	    7 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T09:51:34.951756Z	    7 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T09:51:34.953202Z	    7 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T09:51:34.959110Z	    7 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T09:51:34.960638Z	    7 Query	ROLLBACK 
+2019-10-16T09:51:34.961932Z	    7 Query	SET NAMES latin1
+2019-10-16T09:51:34.963572Z	    7 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T09:51:34.970037Z	    7 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T09:51:34.976017Z	    7 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T09:51:34.991193Z	    7 Query	SHOW CREATE TABLE `users`
+2019-10-16T09:51:34.995024Z	    7 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T09:51:35.010175Z	    7 Query	ROLLBACK 
+2019-10-16T09:51:35.039352Z	    7 Quit	
+2019-10-16T10:01:17.710974Z	    8 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T10:01:17.713279Z	    8 Query	SET autocommit=0
+2019-10-16T10:01:17.714286Z	    8 Query	SET NAMES latin1
+2019-10-16T10:01:17.715424Z	    8 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T10:01:17.718360Z	    8 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T10:01:17.720090Z	    8 Query	SELECT VERSION()
+2019-10-16T10:01:17.721051Z	    8 Query	SELECT DATABASE()
+2019-10-16T10:01:17.721780Z	    8 Query	SELECT @@transaction_isolation
+2019-10-16T10:01:17.722540Z	    8 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T10:01:17.723914Z	    8 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T10:01:17.724852Z	    8 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T10:01:17.725783Z	    8 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T10:01:17.726415Z	    8 Query	ROLLBACK 
+2019-10-16T10:01:17.727024Z	    8 Query	SET NAMES latin1
+2019-10-16T10:01:17.728039Z	    8 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T10:01:17.733160Z	    8 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T10:01:17.737570Z	    8 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T10:01:17.750294Z	    8 Query	SHOW CREATE TABLE `users`
+2019-10-16T10:01:17.754391Z	    8 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T10:01:17.770094Z	    8 Query	ROLLBACK 
+2019-10-16T10:01:17.803282Z	    8 Quit	
+2019-10-16T10:02:06.698931Z	    9 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-16T10:02:06.701738Z	    9 Query	SET autocommit=0
+2019-10-16T10:02:06.703161Z	    9 Query	SET NAMES latin1
+2019-10-16T10:02:06.704498Z	    9 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-16T10:02:06.709338Z	    9 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-16T10:02:06.714383Z	    9 Query	SELECT VERSION()
+2019-10-16T10:02:06.716652Z	    9 Query	SELECT DATABASE()
+2019-10-16T10:02:06.717986Z	    9 Query	SELECT @@transaction_isolation
+2019-10-16T10:02:06.719781Z	    9 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-16T10:02:06.722054Z	    9 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-16T10:02:06.723725Z	    9 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-16T10:02:06.725691Z	    9 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-16T10:02:06.734628Z	    9 Query	ROLLBACK 
+2019-10-16T10:02:06.736166Z	    9 Query	SET NAMES latin1
+2019-10-16T10:02:06.738661Z	    9 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T10:02:06.743970Z	    9 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T10:02:06.748627Z	    9 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-16T10:02:06.765304Z	    9 Query	SHOW CREATE TABLE `users`
+2019-10-16T10:02:06.769840Z	    9 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-16T10:02:06.784656Z	    9 Query	ROLLBACK 
+2019-10-16T10:02:06.813461Z	    9 Quit	
+2019-10-17T00:42:12.677883Z	   10 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T00:42:12.680846Z	   10 Query	SET autocommit=0
+2019-10-17T00:42:12.682152Z	   10 Query	SET NAMES latin1
+2019-10-17T00:42:12.683237Z	   10 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T00:42:12.686545Z	   10 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T00:42:12.688443Z	   10 Query	SELECT VERSION()
+2019-10-17T00:42:12.689621Z	   10 Query	SELECT DATABASE()
+2019-10-17T00:42:12.690690Z	   10 Query	SELECT @@transaction_isolation
+2019-10-17T00:42:12.691561Z	   10 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T00:42:12.693088Z	   10 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T00:42:12.694212Z	   10 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T00:42:12.695211Z	   10 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T00:42:12.696132Z	   10 Query	ROLLBACK 
+2019-10-17T00:42:12.696894Z	   10 Query	SET NAMES latin1
+2019-10-17T00:42:12.697970Z	   10 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:42:12.701415Z	   10 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:42:12.704194Z	   10 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:42:12.715846Z	   10 Query	SHOW CREATE TABLE `users`
+2019-10-17T00:42:12.719044Z	   10 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T00:42:12.732810Z	   10 Query	ROLLBACK 
+2019-10-17T00:42:12.756470Z	   10 Quit	
+2019-10-17T00:43:32.225915Z	   11 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T00:43:32.229207Z	   11 Query	SET autocommit=0
+2019-10-17T00:43:32.230233Z	   11 Query	SET NAMES latin1
+2019-10-17T00:43:32.231520Z	   11 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T00:43:32.235705Z	   11 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T00:43:32.238087Z	   11 Query	SELECT VERSION()
+2019-10-17T00:43:32.239650Z	   11 Query	SELECT DATABASE()
+2019-10-17T00:43:32.240950Z	   11 Query	SELECT @@transaction_isolation
+2019-10-17T00:43:32.242186Z	   11 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T00:43:32.244375Z	   11 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T00:43:32.245772Z	   11 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T00:43:32.247181Z	   11 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T00:43:32.248252Z	   11 Query	ROLLBACK 
+2019-10-17T00:43:32.249264Z	   11 Query	SET NAMES latin1
+2019-10-17T00:43:32.250589Z	   11 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:43:32.255704Z	   11 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:43:32.260365Z	   11 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:43:32.280282Z	   11 Query	SHOW CREATE TABLE `users`
+2019-10-17T00:43:32.284185Z	   11 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T00:43:32.303819Z	   11 Query	ROLLBACK 
+2019-10-17T00:43:32.334832Z	   11 Quit	
+2019-10-17T00:43:36.828177Z	   12 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T00:43:36.830327Z	   12 Query	SET autocommit=0
+2019-10-17T00:43:36.831601Z	   12 Query	SET NAMES latin1
+2019-10-17T00:43:36.833139Z	   12 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T00:43:36.837593Z	   12 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T00:43:36.840468Z	   12 Query	SELECT VERSION()
+2019-10-17T00:43:36.842077Z	   12 Query	SELECT DATABASE()
+2019-10-17T00:43:36.843521Z	   12 Query	SELECT @@transaction_isolation
+2019-10-17T00:43:36.844963Z	   12 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T00:43:36.847863Z	   12 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T00:43:36.849981Z	   12 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T00:43:36.851569Z	   12 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T00:43:36.852758Z	   12 Query	ROLLBACK 
+2019-10-17T00:43:36.853786Z	   12 Query	SET NAMES latin1
+2019-10-17T00:43:36.855372Z	   12 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:43:36.861350Z	   12 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:43:36.866271Z	   12 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T00:43:36.884270Z	   12 Query	SHOW CREATE TABLE `users`
+2019-10-17T00:43:36.888332Z	   12 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T00:43:36.909405Z	   12 Query	ROLLBACK 
+2019-10-17T00:43:36.951641Z	   12 Quit	
+2019-10-17T01:09:23.519397Z	   13 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:09:23.522729Z	   13 Query	SET autocommit=0
+2019-10-17T01:09:23.523681Z	   13 Query	SET NAMES utf8
+2019-10-17T01:09:23.525225Z	   13 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:09:23.530341Z	   13 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:09:23.533069Z	   13 Query	SELECT VERSION()
+2019-10-17T01:09:23.534917Z	   13 Query	SELECT DATABASE()
+2019-10-17T01:09:23.536468Z	   13 Query	SELECT @@transaction_isolation
+2019-10-17T01:09:23.538107Z	   13 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:09:23.540512Z	   13 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:09:23.542186Z	   13 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:09:23.544689Z	   13 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:09:23.546370Z	   13 Query	ROLLBACK 
+2019-10-17T01:09:23.547709Z	   13 Query	SET NAMES utf8
+2019-10-17T01:09:23.549417Z	   13 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:09:23.553399Z	   13 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:09:23.557338Z	   13 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:09:23.572676Z	   13 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:09:23.578079Z	   13 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:09:23.593542Z	   13 Query	ROLLBACK 
+2019-10-17T01:09:23.619920Z	   13 Quit	
+2019-10-17T01:09:56.677861Z	   14 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:09:56.680979Z	   14 Query	SET autocommit=0
+2019-10-17T01:09:56.682204Z	   14 Query	SET NAMES utf8
+2019-10-17T01:09:56.683502Z	   14 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:09:56.687999Z	   14 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:09:56.690057Z	   14 Query	SELECT VERSION()
+2019-10-17T01:09:56.691327Z	   14 Query	SELECT DATABASE()
+2019-10-17T01:09:56.692628Z	   14 Query	SELECT @@transaction_isolation
+2019-10-17T01:09:56.693779Z	   14 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:09:56.695673Z	   14 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:09:56.696805Z	   14 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:09:56.698212Z	   14 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:09:56.699252Z	   14 Query	ROLLBACK 
+2019-10-17T01:09:56.700215Z	   14 Query	SET NAMES utf8
+2019-10-17T01:09:56.701339Z	   14 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:09:56.707440Z	   14 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:09:56.711853Z	   14 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:09:56.732845Z	   14 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:09:56.738527Z	   14 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:09:56.753216Z	   14 Query	ROLLBACK 
+2019-10-17T01:09:56.777695Z	   14 Quit	
+2019-10-17T01:10:33.311867Z	   15 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:10:33.314269Z	   15 Query	SET autocommit=0
+2019-10-17T01:10:33.315739Z	   15 Query	SET NAMES utf8
+2019-10-17T01:10:33.316919Z	   15 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:10:33.320449Z	   15 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:10:33.322486Z	   15 Query	SELECT VERSION()
+2019-10-17T01:10:33.323581Z	   15 Query	SELECT DATABASE()
+2019-10-17T01:10:33.324531Z	   15 Query	SELECT @@transaction_isolation
+2019-10-17T01:10:33.325431Z	   15 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:10:33.326978Z	   15 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:10:33.327975Z	   15 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:10:33.329866Z	   15 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:10:33.330597Z	   15 Query	ROLLBACK 
+2019-10-17T01:10:33.331243Z	   15 Query	SET NAMES utf8
+2019-10-17T01:10:33.332222Z	   15 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:10:33.334754Z	   15 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:10:33.337378Z	   15 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:10:33.353944Z	   15 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:10:33.358770Z	   15 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:10:33.373344Z	   15 Query	ROLLBACK 
+2019-10-17T01:10:33.414499Z	   15 Quit	
+2019-10-17T01:16:36.706642Z	   16 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:16:36.709092Z	   16 Query	SET autocommit=0
+2019-10-17T01:16:36.710171Z	   16 Query	SET NAMES utf8
+2019-10-17T01:16:36.711207Z	   16 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:16:36.713406Z	   16 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:16:36.715482Z	   16 Query	SELECT VERSION()
+2019-10-17T01:16:36.716703Z	   16 Query	SELECT DATABASE()
+2019-10-17T01:16:36.717539Z	   16 Query	SELECT @@transaction_isolation
+2019-10-17T01:16:36.718443Z	   16 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:16:36.719972Z	   16 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:16:36.720901Z	   16 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:16:36.721967Z	   16 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:16:36.722686Z	   16 Query	ROLLBACK 
+2019-10-17T01:16:36.723387Z	   16 Query	SET NAMES utf8
+2019-10-17T01:16:36.724414Z	   16 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:16:36.727514Z	   16 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:16:36.729821Z	   16 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:16:36.740794Z	   16 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:16:36.744272Z	   16 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:16:36.758397Z	   16 Query	ROLLBACK 
+2019-10-17T01:16:36.783492Z	   16 Quit	
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2019-10-17T01:29:38.376011Z	    2 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:29:38.381821Z	    2 Query	SET autocommit=0
+2019-10-17T01:29:38.382970Z	    2 Query	SET NAMES utf8
+2019-10-17T01:29:38.384207Z	    2 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:29:38.388867Z	    2 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:29:38.390845Z	    2 Query	SELECT VERSION()
+2019-10-17T01:29:38.392116Z	    2 Query	SELECT DATABASE()
+2019-10-17T01:29:38.393275Z	    2 Query	SELECT @@transaction_isolation
+2019-10-17T01:29:38.394480Z	    2 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:29:38.396528Z	    2 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:29:38.397988Z	    2 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:29:38.399417Z	    2 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:29:38.400452Z	    2 Query	ROLLBACK 
+2019-10-17T01:29:38.401811Z	    2 Query	SET NAMES utf8
+2019-10-17T01:29:38.403143Z	    2 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:29:38.407121Z	    2 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:29:38.409602Z	    2 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:29:38.422160Z	    2 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:29:38.430596Z	    2 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:29:38.447316Z	    2 Query	ROLLBACK 
+2019-10-17T01:29:38.478457Z	    2 Quit	
+2019-10-17T01:29:43.810881Z	    3 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:29:43.813211Z	    3 Query	SET autocommit=0
+2019-10-17T01:29:43.814409Z	    3 Query	SET NAMES utf8
+2019-10-17T01:29:43.815505Z	    3 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:29:43.819833Z	    3 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:29:43.821660Z	    3 Query	SELECT VERSION()
+2019-10-17T01:29:43.823032Z	    3 Query	SELECT DATABASE()
+2019-10-17T01:29:43.824129Z	    3 Query	SELECT @@transaction_isolation
+2019-10-17T01:29:43.825158Z	    3 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:29:43.826893Z	    3 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:29:43.828396Z	    3 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:29:43.829666Z	    3 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:29:43.830814Z	    3 Query	ROLLBACK 
+2019-10-17T01:29:43.831725Z	    3 Query	SET NAMES utf8
+2019-10-17T01:29:43.833083Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:29:43.836939Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:29:43.840011Z	    3 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:29:43.851472Z	    3 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:29:43.855229Z	    3 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:29:43.876636Z	    3 Query	ROLLBACK 
+2019-10-17T01:29:43.908253Z	    3 Quit	
+2019-10-17T01:39:08.401562Z	    4 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:39:08.404187Z	    4 Query	SET autocommit=0
+2019-10-17T01:39:08.405507Z	    4 Query	SET NAMES utf8
+2019-10-17T01:39:08.406708Z	    4 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:39:08.410142Z	    4 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:39:08.412322Z	    4 Query	SELECT VERSION()
+2019-10-17T01:39:08.413577Z	    4 Query	SELECT DATABASE()
+2019-10-17T01:39:08.414589Z	    4 Query	SELECT @@transaction_isolation
+2019-10-17T01:39:08.415622Z	    4 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:39:08.417363Z	    4 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:39:08.418530Z	    4 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:39:08.419736Z	    4 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:39:08.420663Z	    4 Query	ROLLBACK 
+2019-10-17T01:39:08.421420Z	    4 Query	SET NAMES utf8
+2019-10-17T01:39:08.422540Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:39:08.427487Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:39:08.434444Z	    4 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:39:08.488086Z	    4 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:39:08.493092Z	    4 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:39:08.519985Z	    4 Query	ROLLBACK 
+2019-10-17T01:39:08.560205Z	    4 Quit	
+2019-10-17T01:44:35.926042Z	    5 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:44:35.929482Z	    5 Query	SET autocommit=0
+2019-10-17T01:44:35.930843Z	    5 Query	SET NAMES utf8
+2019-10-17T01:44:35.932509Z	    5 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:44:35.937110Z	    5 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:44:35.939389Z	    5 Query	SELECT VERSION()
+2019-10-17T01:44:35.941024Z	    5 Query	SELECT DATABASE()
+2019-10-17T01:44:35.942480Z	    5 Query	SELECT @@transaction_isolation
+2019-10-17T01:44:35.943581Z	    5 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:44:35.945490Z	    5 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:44:35.946779Z	    5 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:44:35.947999Z	    5 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:44:35.949001Z	    5 Query	ROLLBACK 
+2019-10-17T01:44:35.949842Z	    5 Query	SET NAMES utf8
+2019-10-17T01:44:35.951311Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:44:35.954981Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:44:35.958312Z	    5 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:44:35.969977Z	    5 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:44:35.973677Z	    5 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:44:35.996316Z	    5 Query	ROLLBACK 
+2019-10-17T01:44:36.029079Z	    5 Quit	
+2019-10-17T01:45:32.895198Z	    6 Connect	user@172.21.0.1 on sample_db using TCP/IP
+2019-10-17T01:45:32.897865Z	    6 Query	SET autocommit=0
+2019-10-17T01:45:32.898966Z	    6 Query	SET NAMES utf8
+2019-10-17T01:45:32.900019Z	    6 Query	SHOW VARIABLES LIKE 'sql_mode'
+2019-10-17T01:45:32.903424Z	    6 Query	SHOW VARIABLES LIKE 'lower_case_table_names'
+2019-10-17T01:45:32.905227Z	    6 Query	SELECT VERSION()
+2019-10-17T01:45:32.906442Z	    6 Query	SELECT DATABASE()
+2019-10-17T01:45:32.907447Z	    6 Query	SELECT @@transaction_isolation
+2019-10-17T01:45:32.908372Z	    6 Query	show collation where `Charset` = 'utf8mb4' and `Collation` = 'utf8mb4_bin'
+2019-10-17T01:45:32.909953Z	    6 Query	SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:45:32.911004Z	    6 Query	SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+2019-10-17T01:45:32.912086Z	    6 Query	SELECT CAST('test collated returns' AS CHAR CHARACTER SET utf8mb4) COLLATE utf8mb4_bin AS anon_1
+2019-10-17T01:45:32.912978Z	    6 Query	ROLLBACK 
+2019-10-17T01:45:32.913853Z	    6 Query	SET NAMES utf8
+2019-10-17T01:45:32.915232Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:45:32.919099Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:45:32.921649Z	    6 Query	SHOW FULL TABLES FROM `sample_db`
+2019-10-17T01:45:32.933372Z	    6 Query	SHOW CREATE TABLE `users`
+2019-10-17T01:45:32.937648Z	    6 Query	SELECT users.id, users.name, users.email 
+FROM users 
+WHERE users.name = 'TOM' 
+ LIMIT 0, 1
+2019-10-17T01:45:32.966142Z	    6 Query	ROLLBACK 
+2019-10-17T01:45:32.997600Z	    6 Quit	
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+mysqld, Version: 5.7.27-log (MySQL Community Server (GPL)). started with:
+Tcp port: 0  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument

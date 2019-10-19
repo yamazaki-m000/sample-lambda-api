@@ -1,0 +1,9 @@
+= READMEまとめ
+
+link:doc/README_for_setup.adoc[ローカル開発環境構築]
+
+link:doc/README_for_run.adoc[ローカル開発での起動方法]
+
+link:doc/README_for_release.adoc[AWS開発環境デプロイ]
+
+link:doc/README_for_pydoc.adoc[ドキュメント生成]

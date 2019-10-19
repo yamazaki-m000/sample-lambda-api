@@ -1,0 +1,45 @@
+= pydocの実行方法
+:toc:
+
+== 手順
+
+細かい原理は押さえていないが、アプリケーションが動作する状態で実行しないとドキュメントの生成に失敗する。 +  
+※恐らくモジュール間の呼び出し関係等を見るため
+
+従って、環境変数やモジュール検索パスなどをアプリケーションを起動させる場合と同じ状態にするする必要がある。
+
+以下、手順（windowsのcmd前提） +
+※remでコメントアウトされているコマンドは出力対象によって変わる部分のサンプル
+
+```bat
+rem smaso-sems-lambda-apiの手前までのパスを指定する
+set APP_BASE=C:\hosoya\smartsolar\source\
+
+rem 仮想環境へ入る
+%APP_BASE%\smaso-sems-lambda-api\venv\Scripts\activate.bat
+
+rem アプリ用環境変数設定
+set PROFILE=test
+set MAX_DEVICE_ID_LENGTH=128
+
+rem CONFIG_PATHはドキュメントを出力したいAPIによってパスが変わるので注意
+set CONFIG_PATH=issue_and_associate_client_certificate/iaacc/config
+rem set CONFIG_PATH=verify_client_certificate_and_status_update/vccasu/config
+rem set CONFIG_PATH=associate_device_with_user/adwu/config
+rem set CONFIG_PATH=recompose_of_regular_results/rorr/config
+rem set CONFIG_PATH=register_user_authentication/rua/config
+
+rem モジュール検索パスの設定
+set PYTHONPATH=%APP_BASE%\smaso-sems-lambda-api\src
+set PYTHONPATH=%PYTHONPATH%;%APP_BASE%\smaso-sems-lambda-api\tests\unit
+set PYTHONPATH=%PYTHONPATH%;%APP_BASE%\smaso-sems-lambda-api\src\layer\python
+set PYTHONPATH=%PYTHONPATH%;%APP_BASE%\smaso-sems-lambda-api\src\layer\python\lib\python3.7\site-packages
+
+rem 移動
+cd %APP_BASE%\smaso-sems-lambda-api\src
+python -m pydoc -w test_issue_and_associate_client_certificate.test_test
+rem python -m pydoc -w test_verify_client_certificate_and_status_update.test_test
+rem python -m pydoc -w test_associate_device_with_user.test_test
+rem python -m pydoc -w test_recompose_of_regular_results.test_test
+rem python -m pydoc -w test_register_user_authentication.test_test
+```

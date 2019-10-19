@@ -1,0 +1,40 @@
+version: '3.3'
+services:
+  db:
+    build: ./mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: sample_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    command: mysqld
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./mysql/log:/var/log/mysql
+      - ./mysql/mysql_data:/var/lib/mysql
+
+  s3:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./s3/bucket:/export
+      - ./s3/.minio:/root/.minio
+    environment:
+      - "MINIO_ACCESS_KEY=yamazaki"
+      - "MINIO_SECRET_KEY=yamazakiyamazaki"
+    command: server /export
+
+  createbuckets:
+    image: minio/mc
+    depends_on:
+      - s3
+    entrypoint: >
+      /bin/sh -c "
+      until (/usr/bin/mc config host add myminio http://s3:9000 yamazaki yamazakiyamazaki) do echo '...waiting...' && sleep 1; done;
+      /usr/bin/mc mb myminio/mybucket;
+      /usr/bin/mc policy download myminio/sample-mybucket-local;
+      exit 0;
+      "

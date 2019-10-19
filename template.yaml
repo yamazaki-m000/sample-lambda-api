@@ -1,0 +1,173 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  AWS
+
+  Sample SAM Template for AWS
+
+# ------------------------------------------------------------
+# Parameters section
+# ------------------------------------------------------------
+Parameters:
+  EnvName:
+    Description: An environment name.
+    Type: String
+    Default: local
+    AllowedValues:
+      - local
+      - dev
+      - stg
+
+  ServiceName:
+    Description: A service name.
+    Type: String
+    Default: sample_system
+
+# ------------------------------------------------------------
+# Mappings section
+# ------------------------------------------------------------
+Mappings:
+  Environments:
+    local:
+      LogLevel: DEBUG
+      S3Endpoint: http://127.0.0.1:9000
+      S3Bucket: sample-mybucket-local
+      DBEndpoint: mysql://user:password@localhost:13306/sample_db?charset=utf8
+    dev:
+      LogLevel: DEBUG
+      S3Bucket: sample-mybucket-dev
+      DBEndpoint: mysql://admin:password@database-1.************.ap-northeast-1.rds.amazonaws.com:3306/sample_db?charset=utf8
+    stg:
+      LogLevel: DEBUG
+      S3Bucket: sample-mybucket-stg
+      DBEndpoint: mysql://admin:password@database-1.************.ap-northeast-1.rds.amazonaws.com:3306/sample_db?charset=utf8
+
+
+# ------------------------------------------------------------
+# Globals section
+# ------------------------------------------------------------
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Runtime: python3.7
+    Layers:
+      - !Ref PythonModulesLayer
+      - !Ref PythonLibLayer
+    Timeout: 29
+
+# ------------------------------------------------------------
+# Resources section
+# ------------------------------------------------------------
+Resources:
+  RestApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub ${EnvName}_${ServiceName}_api
+      StageName: !Ref EnvName
+
+  SampleRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: SamplePolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: "*"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
+
+  Sample1Function:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: src/controller/sample_api_1/
+      Handler: app.lambda_handler_1
+      Role: !GetAtt SampleRole.Arn
+      Events:
+        SampleEvent:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            RestApiId: !Ref RestApi
+            Path: /sample_api_1/Sample1
+            Method: POST
+      Environment:
+        Variables:
+          LOG_FORMAT: '%(asctime)s\t[%(levelname)s]\t%(module)s.py@(L:%(lineno)d)\t%(funcName)s\t%(message)s'
+          LOG_LEVEL: !FindInMap [ Environments, !Ref EnvName, LogLevel ]
+          #          S3_ENDPOINT: !FindInMap [ Environments, !Ref EnvName, S3Endpoint ]
+          S3_BUCKET: !FindInMap [ Environments, !Ref EnvName, S3Bucket ]
+          DB_ENDPOINT: !FindInMap [ Environments, !Ref EnvName, DBEndpoint ]
+
+    Sample2Function:
+      Type: AWS::Serverless::Function
+      Properties:
+        CodeUri: src/controller/sample_api_1/
+        Handler: app.lambda_handler_2
+        Events:
+          SampleEvent:
+            Type: Api
+            Properties:
+              RestApiId: !Ref RestApi
+              Path: /sample_api_1/Sample2
+              Method: POST
+
+  #    Sample3Function:
+  #      Type: AWS::Serverless::Function
+  #      Properties:
+  #        CodeUri: src/controller/sample_api_2/
+  #        Handler: app.lambda_handler_1
+  #        Events:
+  #          SampleEvent:
+  #            Type: Api
+  #            Properties:
+  #              RestApiId: !Ref RestApi
+  #              Path: /sample_api_2/Sample1
+  #              Method: POST
+  #
+  #    Sample4Function:
+  #      Type: AWS::Serverless::Function
+  #      Properties:
+  #        CodeUri: src/controller/sample_api_2/
+  #        Handler: app.lambda_handler_2
+  #        Events:
+  #          SampleEvent:
+  #            Type: Api
+  #            Properties:
+  #              RestApiId: !Ref RestApi
+  #              Path: /sample_api_2/Sample2
+  #              Method: POST
+
+  PythonModulesLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: PythonModulesLayer
+      Description: python modules Layer
+      ContentUri: src/layer/
+      RetentionPolicy: Retain
+      CompatibleRuntimes:
+        - python3.7
+
+
+  PythonLibLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: PythonLibLayer
+      Description: python lib Layer
+      #      ContentUri: venv/Lib/site-packages/
+      ContentUri: build_for_lambda/lib_layer/
+      RetentionPolicy: Retain
+      CompatibleRuntimes:
+        - python3.7
